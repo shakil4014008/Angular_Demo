@@ -500,7 +500,13 @@ export class AppComponent {
 }
 
 --------------------------------------
+ngFor for trackby .. not to create same object in refresh
 
+why? to iterate the list
+ngfor is bad for largelist 
+
+if don't have type then, put any
+e.g. employee: any
 
 
 
