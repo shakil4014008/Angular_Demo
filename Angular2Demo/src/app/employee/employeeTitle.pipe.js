@@ -11,7 +11,7 @@ var EmployeeTitlePipe = /** @class */ (function () {
     function EmployeeTitlePipe() {
     }
     EmployeeTitlePipe.prototype.transform = function (value, gender) {
-        if ((gender.toLowerCase() == 'male')) {
+        if ((gender.toLowerCase() === 'male')) {
             return "Mr. " + value;
         }
         else {

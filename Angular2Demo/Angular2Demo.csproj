@@ -107,6 +107,8 @@
     <Content Include="Public\styles.css" />
     <Content Include="src\app\app.component.html" />
     <Content Include="src\app\employee\employee.component.html" />
+    <Content Include="src\app\employee\employeeCount.component.css" />
+    <Content Include="src\app\employee\employeeCount.component.html" />
     <Content Include="src\app\employee\employeeList.component.css" />
     <Content Include="src\app\employee\employeelist.component.html" />
     <Content Include="src\tsconfig.json" />
@@ -137,6 +139,7 @@
     <TypeScriptCompile Include="src\app\app.component.ts" />
     <TypeScriptCompile Include="src\app\app.module.ts" />
     <TypeScriptCompile Include="src\app\employee\employee.component.ts" />
+    <TypeScriptCompile Include="src\app\employee\employeeCount.component.ts" />
     <TypeScriptCompile Include="src\app\employee\employeelist.component.ts" />
     <TypeScriptCompile Include="src\app\employee\employeeTitle.pipe.ts" />
     <TypeScriptCompile Include="src\main.ts" />

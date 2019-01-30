@@ -540,11 +540,19 @@ declare custom pipe
 update html binding and logic in the pipe
 
 
+nested component, container component
+eventemitter
+ng-container 
+
+-- parent component will send those information to child component
+
+#of male, #of female
 
 
+== or === ?
 
-
-
+== compare two values
+=== compare two values & their types
 
 
 

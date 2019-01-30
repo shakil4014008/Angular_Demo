@@ -1,4 +1,11 @@
-﻿<table>
+﻿<employee-count [all]="getTotalEmployeeCount()"
+                [male]="getTotalMaleEmployeeCount()"
+                [female]="getTotalFemaleEmployeeCount()">
+</employee-count>
+
+<br /><br />
+
+<table>
     <thead>
     <tr>
         <th>Code</th>
@@ -11,7 +18,7 @@
     </thead>
     <tbody>
     
-    <tr *ngFor ='let employee of employees; let i=index; let isFirst=first; let isLast=last; let isEven=even; let isOdd=odd'>
+    <tr *ngFor ='let employee of employees'>
         <td>{{employee.code | uppercase}}</td>
         <td>{{employee.name | employeeTitle:employee.gender}}</td>
         <td>{{employee.gender}}</td>
@@ -31,4 +38,4 @@
 </table>
 
 <br/>
-<button (click)="getEmployees()">Refresh Employee</button>
+ 
