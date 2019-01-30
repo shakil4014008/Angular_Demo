@@ -517,10 +517,15 @@ trackby keeps record of unchange objects.
 trackby improves performance, it also helps to identify collection index
 
 
+-------------------
+Angular pipes
+Built in pipes include lowercase, uppercase, decimal, date, percent, currency etc
+document:
+https://angular.io/api/common/DatePipe
 
-
-
-
+transform data before display
+chain pipe
+parameter by colon
 
 
 
