@@ -527,9 +527,17 @@ transform data before display
 chain pipe
 parameter by colon
 
+custom pipes
 
+angular.io/pipes
 
+Customer pipe
+--------------------------
 
+3 steps: 
+create class
+declare custom pipe
+update html binding and logic in the pipe
 
 
 
