@@ -8,11 +8,13 @@
         <th>Date of Birth</th>
         <th>Is First</th>
         <th>Is Last</th>
+        <th>Is Even</th>
+        <th>Is Odd</th>
     </tr>
     </thead>
     <tbody>
     
-    <tr *ngFor ='let employee of employees; let i=index; let isFirst=first; let isLast=last'>
+    <tr *ngFor ='let employee of employees; let i=index; let isFirst=first; let isLast=last; let isEven=even; let isOdd=odd'>
         <td>{{employee.code}}</td>
         <td>{{employee.name}}</td>
         <td>{{employee.gender}}</td>
@@ -21,6 +23,8 @@
         <td>{{i}}</td>
         <td>{{isFirst}}</td>
         <td>{{isLast}}</td>
+        <td>{{isEven}}</td>
+        <td>{{IsOdd}}</td>
         
     </tr>
     <tr *ngIf="!employees || employees.length ==0 ">
