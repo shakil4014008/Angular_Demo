@@ -6,17 +6,21 @@
         <th>Gender</th>
         <th>Annual Salary</th>
         <th>Date of Birth</th>
+        <th>Is First</th>
+        <th>Is Last</th>
     </tr>
     </thead>
     <tbody>
     
-    <tr *ngFor ='let employee of employees; let i=index'>
+    <tr *ngFor ='let employee of employees; let i=index; let isFirst=first; let isLast=last'>
         <td>{{employee.code}}</td>
         <td>{{employee.name}}</td>
         <td>{{employee.gender}}</td>
         <td>{{employee.annualSalary}}</td>
         <td>{{employee.dateofbirth}}</td>
         <td>{{i}}</td>
+        <td>{{isFirst}}</td>
+        <td>{{isLast}}</td>
         
     </tr>
     <tr *ngIf="!employees || employees.length ==0 ">
