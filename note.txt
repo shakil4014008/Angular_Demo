@@ -509,6 +509,12 @@ if don't have type then, put any
 e.g. employee: any
 
 
+Angular ngFor trackBy
+
+
+trackby keeps record of unchange objects. 
+
+trackby improves performance, it also helps to identify collection index
 
 
 
