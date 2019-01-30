@@ -1,0 +1,569 @@
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'my-app',
+  template: `<h1>Maya {{name}}</h1>`,
+})
+export class AppComponent  { name = 'Corporation'; }
+
+
+export: allows to be exported
+
+
+a component: template+class+decorator
+
+template and templateurl
+
+we can not use intelligense here.
+
+inline code does not understand..
+
+templateurl use for pointing external template file. 
+
+templateUrl:'app/app.component.html'
+-- it is formattable.
+
+
+nesting angular component
+
+- reusable ui widget
+
+less then 3 lines then use inline. 
+
+else separate html file.
+
+
+root / nested component 
+
+AppModule bootstrap the login
+
+ngmodule: add metadata
+
+
+appcomponent----component
+appmodule--ngmodule
+
+
+property binding...
+
+{{10+20}}
+
+termnary expression 
+interpolation
+property binding
+
+both same:
+<img src='{{imagePath}}'>
+is same as <img [src] = 'imagePath'>
+
+
+   <button [disabled] = 'isDisabled'>Click me</button>
+
+
+//in class 
+isDisabled: boolean = true
+
+
+--------
+property binding
+ - square bracket
+ <span [innerHtml]='pageHeader'></span>
+or canonical binidng
+ <span bind-innerHtml='pageHeader'></span>
+
+html attribute and dom property
+
+
+dom:
+windows
+document
+html
+head, body
+title  script  div
+                 h1
+
+button disabled here disabled is attribute of  of html5 button object
+
+max, maxlength,min, required readonly, pattern, step, value
+
+property can change, value can't
+
+
+
+angular attribute binding
+ <th [attr.colspan]="colspan">
+            Employee Details
+        </th>
+
+
+
+two ways of attribute binding: 
+
+<th [attr.colspan]="colspan">
+
+ <span [innerHtml]='pageHeader'></span
+
+
+bindingComponent class
+
+import {Component} from "@angular/core"
+
+@Component({
+    selector: 'my-app',
+    template: `
+    <div>
+        <h1>{{getFullMethod()}}</h1>
+        <img [src]='imagePath'/><br/><br/><br/> 
+         <my-employee></my-employee>
+    </div>
+`
+})
+export class AppComponent {
+    pageHeader: string = "Employee Details";
+    imagePath: string = 'https://paloimages.prothom-alo.com/contents/themes/public/style/images/Prothom-Alo.png';
+    isDisabled: boolean = false;
+    firstName: string = 'Tom';
+    lastName: string = 'Hopkins';
+   
+    getFullMethod(): string {
+        return this.firstName + ' ' + this.lastName;
+    }
+}
+
+--
+/*table {
+    color: #369;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: large;
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid black;
+}body {
+}*/
+
+
+-----------------
+
+import {Component} from "@angular/core"
+
+@Component({
+    selector: 'my-app',
+    template: `
+  <button class="colorClass" [class] ='classestoapply'>MyButton</button><br/>
+
+  <button class="colorClass" [class.boldClass]='applyBoldClass'>MyButton2</button>
+`
+})
+export class AppComponent {
+    isDisabled: boolean = false;
+    classestoapply: string = "italicClass boldClass";
+    applyBoldClass: boolean = true;
+    
+}
+
+---------------------------
+import {Component} from "@angular/core"
+
+@Component({
+    selector: 'my-app',
+    template: `
+  <button class="colorClass" [class] ='classestoapply'>MyButton</button><br/>
+
+  <button class="colorClass" [class.boldClass]='!applyBoldClass'>MyButton2</button>
+`
+})
+export class AppComponent {
+    isDisabled: boolean = false;
+    classestoapply: string = "italicClass boldClass";
+    applyBoldClass: boolean = false;
+    
+}
+
+
+import {Component} from "@angular/core"
+
+@Component({
+    selector: 'my-app',
+    template: `
+  <button class="colorClass" [class] ='classestoapply'>MyButton</button><br/>
+
+  <button class="colorClass" [class.boldClass]='!applyBoldClass'>MyButton2</button>
+
+   <br>
+  <button class="colorClass" [ngClass]='addClasses()'>MyButton3</button>
+
+`
+})
+export class AppComponent {
+    isDisabled: boolean = false;
+    classestoapply: string = "italicClass boldClass";
+    applyBoldClass: boolean = true;
+    applyItalicClass: boolean = true;
+
+    addClasses() {
+        let classes = {
+            boldClass: this.applyBoldClass,
+            italicClass: this.applyItalicClass
+        };
+        return classes;
+    }
+    
+}
+--------------------
+style binding in angular 2
+
+import {Component} from "@angular/core"
+
+@Component({
+    selector: 'my-app',
+    template: `
+  <button style='color:red' [style.font-weight]="isBold ? 'bold': 
+'normal'">MyButton</button><br/>
+
+  
+
+`
+})
+export class AppComponent {
+    isBold: boolean = true;
+    
+}
+
+
+-----------
+import {Component} from "@angular/core"
+
+@Component({
+    selector: 'my-app',
+    template: `
+  <button style='color:red' [style.font-weight]="isBold ? 'bold': 'normal'">MyButton</button><br/>
+<br/><br/> 
+ <button style='color:red' [style.font-size.px]="fontsize ? 'bold': 'normal'">MyButton 2</button><br/>
+
+  
+
+`
+})
+export class AppComponent {
+    isBold: boolean = true;
+    fontsize: number = 30;
+    
+}
+
+---------------
+for multiple variable condition in style settings we can use methods.
+
+
+let is like var
+
+
+multiple attribute set on control:
+import {Component} from "@angular/core"
+
+@Component({
+    selector: 'my-app',
+    template: `
+  <button style='color:red' [style.font-weight]="isBold ? 'bold': 'normal'">MyButton</button><br/>
+<br/><br/> 
+ <button style='color:red' [style.font-size.px]="fontsize ? 'bold': 'normal'">MyButton 2</button><br/>
+<br/><br/><br/> 
+<button style='color:red' [ngStyle]="addStyles()">MyButton 3</button><br/>
+
+  
+
+`
+})
+export class AppComponent {
+    isBold: boolean = true;
+    fontsize: number = 30;
+    isItalic: boolean = true;
+
+    addStyles() {
+        let styles = {
+            'font-size.px': this.fontsize,
+            'font-style': this.isItalic ? 'italic' : 'normal',
+            'font-weight': this.isBold ? 'bold': 'normal'
+        }
+
+        return styles;
+
+    }
+    
+}
+
+import {Component} from "@angular/core"
+
+@Component({
+    selector: 'my-app',
+    template: `
+  <button style='color:red' [style.font-weight]="isBold ? 'bold': 'normal'">MyButton</button><br/>
+<br/><br/> 
+ <button style='color:red' [style.font-size.px]="fontsize ? 'bold': 'normal'">MyButton 2</button><br/>
+<br/><br/><br/> 
+<button style='color:red' [ngStyle]="addStyles()">MyButton 3</button><br/>
+
+  
+
+`
+})
+export class AppComponent {
+    isBold: boolean = true;
+    fontsize: number = 30;
+    isItalic: boolean = true;
+
+    addStyles() {
+        let styles = {
+            'font-size.px': this.fontsize,
+            'font-style': this.isItalic ? 'italic' : 'normal',
+            'font-weight': this.isBold ? 'bold': 'normal'
+        }
+
+        return styles;
+
+    }
+    
+}
+
+------------------
+ANGULAR EVENT BINDING
+INTERPOLATION
+PROPERTY BINDING
+ATTRIBUTE BINDING
+CLASS BINDING
+canonical form
+
+
+
+create file: 
+https://www.youtube.com/watch?v=C8JcGqQdcPI
+
+show details
+
+call another ts file from app.component:
+import {Component} from "@angular/core"
+
+@Component({
+    selector: 'my-app',
+
+    template: `
+               <div>
+                          
+                         <my-employee></my-employee>
+              </div>
+
+`
+})
+export class AppComponent {
+   onClick(): void {
+
+       console.log('button click');
+   }
+    
+}
+
+
+---------------
+
+<tr *nglf='showDetails'></tr>
+//structural directives 
+
+
+this directive will work on row to add or delete data based on the data
+
+
+there are different directives like *ngIf 
+
+when shodetails false, ngif will hide tr
+
+------------
+import {Component} from "@angular/core"
+
+@Component({
+    selector: 'my-app',
+
+    template: `
+               <div>
+                          
+                         <my-employee></my-employee>
+              </div>
+
+`
+})
+export class AppComponent {
+   onClick(): void {
+
+       console.log('button click');
+   }
+    
+}
+
+import { Component } from '@angular/core'
+
+@Component({
+
+    selector: 'my-employee',
+    templateUrl: 'app/employee/employee.component.html'
+})
+
+export class EmployeeComponent {
+    firstName: string = 'Tom';
+    lastName: string = 'Hopkins';
+    gender: string = 'Male';
+    age: number = 20;
+    colspan: number = 2;
+
+    showDetails: boolean = false;
+
+    toggleDetails(): void {
+        this.showDetails = !this.showDetails;
+    }
+}
+
+
+<table >
+    
+    <thead>
+
+    </thead>
+    
+    <tr>
+             
+        <th [attr.colspan]="colspan">
+            Employee Details
+        </th>
+    </tr>
+    <tbody>
+    
+    <tr>
+        <td border="2 px">First Name</td>
+        <td>{{firstName}}</td>
+    </tr>
+    <tr>
+        <td>Last Name</td>
+        <td>{{lastName}}</td>
+    </tr>
+    <tr *ngIf="showDetails">
+        <td>Gender</td>
+        <td>{{gender}}</td>
+    </tr>
+    <tr *ngIf ="showDetails">
+        <td>Age</td>
+        <td>{{age}}</td>
+    </tr>
+    </tbody>
+    
+</table>
+
+<button (click)="toggleDetails()">
+    {{showDetails ? 'Hide': 'Show'}} Details
+</button>
+----------
+
+
+Two way data binding
+
+as type, update other one. 
+
+import {Component} from "@angular/core"
+@Component({
+    selector: 'my-app',
+    template: `
+               Name: <input [value] = 'name' (input)='name=$event.target.value'/>
+                <br/>
+                You entered: {{name}}
+
+`})
+export class AppComponent {
+
+    name: string = 'Tom';
+}
+
+----------------
+2 way binding 
+
+import {Component} from "@angular/core"
+@
+Component({
+    selector: 'my-app',
+    template: `
+               Name: <input [(ngModel)] = 'name '/>
+                <br/>
+                You entered: {{name}}
+
+`
+})
+export class AppComponent {
+
+    name: string = 'Tom';
+}
+
+--------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
