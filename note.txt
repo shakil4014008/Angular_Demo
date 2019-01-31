@@ -681,10 +681,54 @@ a provider should be added in the receiver  class to receive from multiple servi
 we should not put service in the constructor; 
 ngOnInit is the right place of service hook
 
+ngOnInit life cycle hook which call after the constructor, use to fetch data from remote data or time consuming service.
+
+this is angular dependency 
+
+----------------
+
+asp.net web api service to retrieve 
+
+
+sql data: Create Database EmployeeDB
+Go
+
+Use EmployeeDB
+Go
+
+Create table Employees
+(
+     code nvarchar(50) primary key,
+     name nvarchar(50),
+     gender nvarchar(50),
+     annualSalary decimal(18,3),
+     dateOfBirth nvarchar(50)
+)
+Go
+
+Insert into Employees values ('emp101', 'Tom', 'Male', 5500, '6/25/1988')
+Insert into Employees values ('emp102', 'Alex', 'Male', 5700.95, '9/6/1982')
+Insert into Employees values ('emp103', 'Mike', 'Male', 5900, '12/8/1979')
+Insert into Employees values ('emp104', 'Mary', 'Female', 6500.826, '10/14/1980')
+Insert into Employees values ('emp105', 'Nancy', 'Female', 6700.826, '12/15/1982')
+Insert into Employees values ('emp106', 'Steve', 'Male', 7700.481, '11/18/1979')
 
 
 
+*****wikibuy: app to search cheapest item and plug in the amazon 
 
+EmployeeDBEntity from the entity framework database first provides us the entity data. 
+
+
+###To access the services through the browser in webapi,
+
+select project, right click, select view, view in chrmoe, 
+
+browse: http://localhost:54677/api/employees
+
+link: 
+http://localhost:54677/api/employees/emp102
+this will work if: we replace id with code in webapiconfig in appstart folder
 
 
  
