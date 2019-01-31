@@ -1,4 +1,6 @@
 ﻿import { Component } from '@angular/core'
+import Employee = require("./employee");
+import IEmployee = Employee.IEmployee;
 
 @Component({
     selector: 'listEmployee',
@@ -6,19 +8,20 @@
     styleUrls: ['app/employee/employeeList.component.css']
 })
 export class EmployeeListComponent {
-    employees: any[];
+    employees: ({ code: string;name: string;gender: string;annualSalary: number;dateOfBirth: string } |
+                { code: string;name: string;gender: string;annualSalary: number;dateofbirth: string })[];
 
     selectedEmployeeCountRadioButton: string = 'All';
 
     constructor()
     {
          this.employees= [
-            { code: 'emp101', name: 'Shakil', gender: 'Male', annualSalary: 5500, dateofbirth: '01/6/1988' },
-            { code: 'emp102', name: 'Uom', gender: 'Female', annualSalary: 21, dateofbirth: '01/6/1988' },
-            { code: 'emp103', name: 'Wom', gender: 'Male', annualSalary: 5500, dateofbirth: '02/6/1988' },
-             { code: 'emp104', name: 'Xom', gender: 'Female', annualSalary: 5500, dateofbirth: '02/6/1988' },
-             { code: 'emp105', name: 'Zom', gender: 'Female', annualSalary: 5500, dateofbirth: '02/6/1999' },
-             { code: 'emp106', name: 'Jobeda', gender: 'Female', annualSalary: 8800, dateofbirth: '02/6/1999' }
+            { code: 'emp101', name: 'Shakil', gender: 'Male', annualSalary: 5500, dateOfBirth: '01/6/1988' },
+             { code: 'emp102', name: 'Uom', gender: 'Female', annualSalary: 21, dateOfBirth: '01/6/1988' },
+             { code: 'emp103', name: 'Wom', gender: 'Male', annualSalary: 5500, dateOfBirth: '02/6/1988' },
+             { code: 'emp104', name: 'Xom', gender: 'Female', annualSalary: 5500, dateOfBirth: '02/6/1988' },
+             { code: 'emp105', name: 'Zom', gender: 'Female', annualSalary: 5500, dateOfBirth: '02/6/1999' },
+             { code: 'emp106', name: 'Jobeda', gender: 'Female', annualSalary: 8800, dateOfBirth: '02/6/1999' }
             
         ];
     }

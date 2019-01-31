@@ -556,19 +556,93 @@ ng-container
 
 
 
+Error: node_module is not creating!
+sol: remove the lock file from the project where the package.json stays and rebuild. 
 
 
+bind one ngfor in one element
+you can use: 
+<ng-container></ng-container>
 
 
+---------------------
+Interface in Angular 2
+
+business class: 
+employee, customer, order, Transaction
+
+Typescript is strongly typed
+meaning 
+
+employee: any[]//this is not strongly typed
+employee: []employee//strongly typed
+
+in this case we don't get intellisense
+
+Tips: compile time error better than runtime
+
+strong type helps to find typo error
+
+shortthand to remove code: 
+
+we can directly assigning in the constructor using the modifier
+
+export class Employee implements IEmployee {
+    
+    constructor(public code: string, public name: string, public gender: string,
+        public annualSalary: number, public dateOfBirth: string) {
+
+        this.code = code;
+        this.name = name;
+        this.gender = gender;
+        this.annualSalary = annualSalary;
+        this.dateOfBirth = dateOfBirth;
+    }
+
+     
+}
 
 
+some angular interface does not need I 
+
+don't require access modifier; public by default, otheriwse error 
+
+no js code create for interface when transpiling
 
 
+Angular component lifecycle hooks
 
 
+angular life cycle hooks
+
+to tap into and react when these life cycle events occur, angualr offer serveral lifecycle hooks.
+
+create component
+render component
+creaets and render the component child
+check component events 
+destroy component before removing it from the DOM
+
+ngOnChange
+ngOnInit
+ngDoCheck
+ ngAfterContentInit
+ ngAfterContenChecked
+ ngAfterViewInit
+ ngAfterViewChecked
+ngOnDestroy
 
 
+most common: ngOnChange, ngOnInit, ngOnDestroy
 
+step1: import life cycle hook interface
+
+step 2: make the component class implement the hook interface
+
+step 3: write implemnetation code for the interface method
+
+
+ 
 
 
 

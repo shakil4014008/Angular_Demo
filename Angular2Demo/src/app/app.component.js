@@ -9,12 +9,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var AppComponent = /** @class */ (function () {
     function AppComponent() {
-        this.name = 'Tom';
+        this.userText = 'John';
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n              <listEmployee></listEmployee>"
+            template: "Your Text: <input type=\"text\" [(ngModel)] ='userText'/>\n             <br/><br/>\n            <simple [simpleInput] = 'userText'></simple>\n"
         })
     ], AppComponent);
     return AppComponent;
