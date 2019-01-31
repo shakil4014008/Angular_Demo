@@ -730,9 +730,57 @@ link:
 http://localhost:54677/api/employees/emp102
 this will work if: we replace id with code in webapiconfig in appstart folder
 
+  routeTemplate: "api/{controller}/{code}",
 
+--------------------
+Angular 2 http service tutorial
+
+
+ angular http service to call webapi
  
+ observable pattern
+ 
+ 
+ 
+ steps to call from angular: 
+ 
+step 1: call import { HttpModule } from '@angular/http';
+from appmodule.
 
+step 2: modify emploeeservice to issue GET request using the built in http service
+
+ constructor(private _http: Http){}//
+   here _http private field created and updated in the constructor whcih can be used later. this is shorthand notation in angular. 
+   
+   
+   observabel: asnych pattern
+   
+   where 
+   
+   
+   
+   step3: from EmployeeListComponent, subscrib to the observable returned by angular employeeSErvice
+   
+   who will subscribe the employeeservice in angular they/all those subscriber can get the service.
+   
+   
+   this.employee inngOnInit will return the observable. this observable is directly connected with the webapi service through service link
+   
+   Callback methods;
+   onNext,
+   onError,
+   OnCompleted
+   
+   
+   
+   two proejcts different port can not work
+   
+   for security reasons 
+   
+   part 47: cross sharing and browsing
+   
+   
+   
 
 
 

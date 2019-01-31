@@ -16,15 +16,13 @@ export class EmployeeListComponent implements  OnInit{
     employees: IEmployee[];
     selectedEmployeeCountRadioButton: string = 'All';
 
-    constructor(private _employeeService: EmployeeService) {
-        //this.employees = this._employeeService.getEmployee();
-
-    }
+    constructor(private _employeeService: EmployeeService) { }
    
 
 
     ngOnInit() {
-        this.employees = this._employeeService.getEmployee();
+        this._employeeService.getEmployees()
+            .subscribe(employeesData => this.employees = employeesData);
     }
 
     onEmployeeCountRadioButtonChange(selectedRadioButtonValue: string): void {

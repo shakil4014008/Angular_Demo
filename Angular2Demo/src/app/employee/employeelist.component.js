@@ -13,12 +13,13 @@ var core_1 = require("@angular/core");
 var employee_service_1 = require("./employee.service");
 var EmployeeListComponent = /** @class */ (function () {
     function EmployeeListComponent(_employeeService) {
-        //this.employees = this._employeeService.getEmployee();
         this._employeeService = _employeeService;
         this.selectedEmployeeCountRadioButton = 'All';
     }
     EmployeeListComponent.prototype.ngOnInit = function () {
-        this.employees = this._employeeService.getEmployee();
+        var _this = this;
+        this._employeeService.getEmployees()
+            .subscribe(function (employeesData) { return _this.employees = employeesData; });
     };
     EmployeeListComponent.prototype.onEmployeeCountRadioButtonChange = function (selectedRadioButtonValue) {
         this.selectedEmployeeCountRadioButton = selectedRadioButtonValue;
