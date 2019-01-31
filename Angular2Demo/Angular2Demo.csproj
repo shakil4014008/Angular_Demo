@@ -103,7 +103,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="bs-config.json" />
-    <Content Include="package.json" />
     <Content Include="Public\styles.css" />
     <Content Include="src\app\app.component.html" />
     <Content Include="src\app\employee\employee.component.html" />
@@ -113,7 +112,7 @@
     <Content Include="src\app\employee\employeelist.component.html" />
     <Content Include="src\tsconfig.json" />
     <Content Include="tslint.json" />
-    <Content Include="package-lock.json" />
+    <Content Include="package.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
