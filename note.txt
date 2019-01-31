@@ -642,6 +642,51 @@ step 2: make the component class implement the hook interface
 step 3: write implemnetation code for the interface method
 
 
+ngOnInit:
+
+
+it is better to implement onChanges during lifecycle hook. 
+
+--------------------
+Angular Service Tutorial
+
+why we need a service, 
+creating service,
+inject and useing service
+difference between constructor and ngOnInit
+
+
+
+service: when we need data from multiple component. reuse.
+
+in angular: service is nothing but a class
+
+@Injectable decorator recommended whether dependency or not.
+
+
+when we passing the data using constructor from one service, then we can easily construct demo 
+- this is one kind of dependency injection. 
+
+service needs to register 
+
+[] meaning it is an array of data
+
+a provider should be added in the receiver  class to receive from multiple services. 
+
+//service can also be available at an module level. 
+
+
+--Angular services tutorial
+
+we should not put service in the constructor; 
+ngOnInit is the right place of service hook
+
+
+
+
+
+
+
  
 
 

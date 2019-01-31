@@ -1,11 +1,11 @@
-﻿import { Component, Input, SimpleChanges } from '@angular/core';
+﻿import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 
 @Component({
     selector: 'simple',
     template:`You entered: {{simpleInput}}`
 })
-export class SimpleComponent {
+export class SimpleComponent implements OnChanges{
     @Input() simpleInput: string;
 
     ngOnChanges(changes: SimpleChanges) {

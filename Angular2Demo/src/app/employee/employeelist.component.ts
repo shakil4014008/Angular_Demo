@@ -1,31 +1,31 @@
-﻿import { Component } from '@angular/core'
+﻿import { Component, OnInit } from '@angular/core'
 import Employee = require("./employee");
 import IEmployee = Employee.IEmployee;
 
-@Component({
-    selector: 'listEmployee',
-    templateUrl: 'app/employee/employeeList.component.html',
-    styleUrls: ['app/employee/employeeList.component.css']
-})
-export class EmployeeListComponent {
-    employees: ({ code: string;name: string;gender: string;annualSalary: number;dateOfBirth: string } |
-                { code: string;name: string;gender: string;annualSalary: number;dateofbirth: string })[];
+import {EmployeeService} from './employee.service';
 
+@Component({
+    selector: 'list-Employee',
+    templateUrl: 'app/employee/employeeList.component.html',
+    styleUrls: ['app/employee/employeeList.component.css'],
+    providers: [EmployeeService]
+
+
+})
+export class EmployeeListComponent implements  OnInit{
+    employees: IEmployee[];
     selectedEmployeeCountRadioButton: string = 'All';
 
-    constructor()
-    {
-         this.employees= [
-            { code: 'emp101', name: 'Shakil', gender: 'Male', annualSalary: 5500, dateOfBirth: '01/6/1988' },
-             { code: 'emp102', name: 'Uom', gender: 'Female', annualSalary: 21, dateOfBirth: '01/6/1988' },
-             { code: 'emp103', name: 'Wom', gender: 'Male', annualSalary: 5500, dateOfBirth: '02/6/1988' },
-             { code: 'emp104', name: 'Xom', gender: 'Female', annualSalary: 5500, dateOfBirth: '02/6/1988' },
-             { code: 'emp105', name: 'Zom', gender: 'Female', annualSalary: 5500, dateOfBirth: '02/6/1999' },
-             { code: 'emp106', name: 'Jobeda', gender: 'Female', annualSalary: 8800, dateOfBirth: '02/6/1999' }
-            
-        ];
+    constructor(private _employeeService: EmployeeService) {
+        //this.employees = this._employeeService.getEmployee();
+
     }
    
+
+
+    ngOnInit() {
+        this.employees = this._employeeService.getEmployee();
+    }
 
     onEmployeeCountRadioButtonChange(selectedRadioButtonValue: string): void {
         this.selectedEmployeeCountRadioButton = selectedRadioButtonValue;
