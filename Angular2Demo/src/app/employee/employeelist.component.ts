@@ -15,6 +15,7 @@ import {EmployeeService} from './employee.service';
 export class EmployeeListComponent implements  OnInit{
     employees: IEmployee[];
     selectedEmployeeCountRadioButton: string = 'All';
+    statusMessage: string = "Loading data. Please wait...";
 
     constructor(private _employeeService: EmployeeService) { }
    
@@ -22,7 +23,11 @@ export class EmployeeListComponent implements  OnInit{
 
     ngOnInit() {
         this._employeeService.getEmployees()
-            .subscribe(employeesData => this.employees = employeesData);
+            .subscribe(employeesData => this.employees = employeesData,
+                (error) => {
+                    this.statusMessage = "Problem with the service. Please try again after sometimes..";
+                    console.error(error);
+                });
     }
 
     onEmployeeCountRadioButtonChange(selectedRadioButtonValue: string): void {

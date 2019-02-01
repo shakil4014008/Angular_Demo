@@ -779,14 +779,26 @@ step 2: modify emploeeservice to issue GET request using the built in http servi
    
    part 47: cross sharing and browsing
    
+   - to access crosss domain, we need to update webconfig file customheader in system.webserver
    
+   loading employee please wait..
    
 
 
+ <tr *ngIf="!employees">
+        <td colspan="5">
+            Loading data. Please wait...
+        </td>
+    </tr>
+	
+	//here loading data status... during loading.. 
 
 
+-----------------
+error handling http
 
-
+how to make artificial service error?
+create mistake in the link..
 
 
 
