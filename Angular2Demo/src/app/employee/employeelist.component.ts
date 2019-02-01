@@ -2,8 +2,7 @@
 import Employee = require("./employee");
 import IEmployee = Employee.IEmployee;
 
-import { EmployeeService } from './employee.service';
-import { UserPreferencesService } from './userPreferences.service';
+import {EmployeeService} from './employee.service';
 
 @Component({
     selector: 'list-Employee',
@@ -18,12 +17,7 @@ export class EmployeeListComponent implements  OnInit{
     selectedEmployeeCountRadioButton: string = 'All';
     statusMessage: string = "Loading data. Please wait...";
 
-    
-
-    constructor(private _employeeService: EmployeeService,
-        private _userPreferencesService: UserPreferencesService) {
-         
-    }
+    constructor(private _employeeService: EmployeeService) { }
    
 
 
@@ -52,15 +46,5 @@ export class EmployeeListComponent implements  OnInit{
 
     getTotalFemaleEmployeeCount(): number {
         return this.employees.filter(e => e.gender === 'Female').length;
-    }
-
-    get colour(): string {
-        return this._userPreferencesService.colourPreference;
-    }
-
-    // Implement a setter to change the colourPreference value
-    // of the service
-    set colour(value: string) {
-        this._userPreferencesService.colourPreference = value;
     }
 }
