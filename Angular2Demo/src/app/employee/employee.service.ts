@@ -11,10 +11,17 @@ export class EmployeeService {
 
     constructor(private _http: Http) {}
     getEmployees(): Observable<IEmployee[]> {
-        return this._http.get('http://localhost:54677/api/employeess')
+        return this._http.get('http://localhost:54677/api/employees')
             .map((response: Response) => <IEmployee[]>response.json())
             .catch(this.handleError);
     }
+
+    getEmployeeByCode(empCode: string): Observable<IEmployee> {
+        return this._http.get('http://localhost:54677/api/employees/' + empCode)
+            .map((response: Response) => <IEmployee>response.json())
+            .catch(this.handleError);
+    }
+
     handleError(error: Response) {
         console.log(error);
         return Observable.throw(error);

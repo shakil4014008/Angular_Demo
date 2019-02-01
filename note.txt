@@ -800,10 +800,106 @@ error handling http
 how to make artificial service error?
 create mistake in the link..
 
+--------------
+use bootstrap in angular
+
+goto project folder in cmd and type the following: 
+npm bootstrap@3 jquery --save
+
+-- show all files only appear in project level not solution level.
+
+
+if lock file does not allow to to install from vs; then open nodejs and install as admin using command
+
+npm bootstrap@3 jquery --save
+
+--------
+all the component will show up if the project e.g. bootstrap folder is included in the project. 
+
+
+content, script, fonts -> bootstrap from nuget
+
+
+nuget only removes which are installed by itself. 
+
+you can use cdn or nuget or npm
+
+---------------
+basic of routing: 
+one view to another view
+
+any comonent which is .ts file
+should be registed in moduler component. 
+
+notice both homecomponent and pagenotfoiundcomponetn don't have selector component. selector component only in the employee component. 
+
+Routing
+step 1: set <base href="/href/">
+
+step 2: import RouteModule and define routes in app.modules
+
+route order is important. first routes match wins. this way ** wild card should be at the end. BEcuase wild card matches with every route.
+
+
+step 3: update app.componetn.ts with menu and link
+
+step 4: in web.conf include the following url-rewrite rule
+
+add router-outlet in app.component. 
+
+//if connection refused for webservice; 
+if local project then you need to run the service by viewing the service page. 
+
+style the active tab using bootstrap 
 
 
 
+//what configuration to you; angular docuemntation needs to follow for web.config file.
 
+based on different server.
+
+without this rewrite rule, back things will not work as expected. 
+
+html file style route
+
+has style route, in appmodule, useHash: true
+in usehash, rewrite is not required.
+
+
+
+ #
+ 
+ -----------------
+ Angular routing parameter; 
+ 
+ passing parameter through the router
+ 
+ notification message and do it for the user
+ 
+ code then details will 
+ 
+ 
+ 
+ 
+ /:code
+ 
+ 
+ step 1: CREATE THE ROUTE WITH A PARAMETER
+ 
+ step 2: bind to the route using [routerLink] directive. In the binding we are using link parameter array.
+ 
+ step 3: 
+
+ 
+ why singletone
+ 
+ ad css
+ 
+ 
+ Singleton in Angular ? why its important?
+
+in chrome: if page does not detect update html or load from cache; do this:
+- Hit F12 in your browser to bring up the Developer Tools. Disable the Cache from network tab. Reload your page
 
 
 
