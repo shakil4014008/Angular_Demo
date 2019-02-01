@@ -903,6 +903,116 @@ in chrome: if page does not detect update html or load from cache; do this:
 
 
 
+*ngif for binding the collection
+
+rewrite rules will only need in html routing not useHash
+
+
+app.component.ts - will contain all menu
+
+thier coreesponindg pages (component page ; ts) should responsible their own duty. 
+
+
+Dependency injection implement angular in angular: 
+
+EmployeeService : we do not instantiate but passing the new object through constructor parameter.
+
+
+who is creating the constructor: 
+  @injector //angular injector
+  
+  we register into angular injector
+  
+  in component or moduler level
+  
+  for angualr injector module becomes dependency free
+  
+  why DI?
+  
+coupled code
+
+a class can not share same piece of functionality if the piece of code are not unique and dependent.
+
+it is hard to maintain in unit test
+
+any time parts change , main code also needs to change, which is frequesntly in large code module
+
+difficult to maintaint
+
+an injector maintain the dependency set who maintain the state. 
+
+parent do not need change in child change ; this is the benefit dependency injection
+
+In dependency injection: angular injector keeps monitoring and sharing the object for mullitple view requests
+
+
+difficult to mock the object for unit testing if not have di
+
+benefits summary: 
+easy to write and maintain  overtime 
+
+easy data and functionality
+
+mocking easy
+
+
+
+create singleton to share across multiple resources
+
+
+by checking the console we can conclude that, injector creates only single instances of userpreferences and that is shared in both home and employee class. 
+
+
+2 steps to create injector:
+
+1. reigster in 
+2. the show in constructor 
+
+
+angular inejction in hierarchical level. 
+
+it works in bubble up to find whether the moduel is injected an object.
+
+injector can be write in module level or component level. 
+In component level, we need to assign provider as same as module level.
+
+bubbles up or not, depends on where it injected and the error will popup: not provided; even it is provided in child component level. 
+
+
+register at root level will share injector to all components including root level with lazy loading. 
+
+there are more then 1 module in real app
+
+HR management system
+root module
+1. emp mod
+2. dept mod
+3. admin mod
+4. report mod
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

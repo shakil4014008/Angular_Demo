@@ -11,9 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var employee_service_1 = require("./employee.service");
+var userPreferences_service_1 = require("./userPreferences.service");
 var EmployeeListComponent = /** @class */ (function () {
-    function EmployeeListComponent(_employeeService) {
+    function EmployeeListComponent(_employeeService, _userPreferencesService) {
         this._employeeService = _employeeService;
+        this._userPreferencesService = _userPreferencesService;
         this.selectedEmployeeCountRadioButton = 'All';
         this.statusMessage = "Loading data. Please wait...";
     }
@@ -37,6 +39,18 @@ var EmployeeListComponent = /** @class */ (function () {
     EmployeeListComponent.prototype.getTotalFemaleEmployeeCount = function () {
         return this.employees.filter(function (e) { return e.gender === 'Female'; }).length;
     };
+    Object.defineProperty(EmployeeListComponent.prototype, "colour", {
+        get: function () {
+            return this._userPreferencesService.colourPreference;
+        },
+        // Implement a setter to change the colourPreference value
+        // of the service
+        set: function (value) {
+            this._userPreferencesService.colourPreference = value;
+        },
+        enumerable: true,
+        configurable: true
+    });
     EmployeeListComponent = __decorate([
         core_1.Component({
             selector: 'list-Employee',
@@ -44,7 +58,8 @@ var EmployeeListComponent = /** @class */ (function () {
             styleUrls: ['app/employee/employeeList.component.css'],
             providers: [employee_service_1.EmployeeService]
         }),
-        __metadata("design:paramtypes", [employee_service_1.EmployeeService])
+        __metadata("design:paramtypes", [employee_service_1.EmployeeService,
+            userPreferences_service_1.UserPreferencesService])
     ], EmployeeListComponent);
     return EmployeeListComponent;
 }());
