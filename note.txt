@@ -1001,6 +1001,24 @@ we can create module
 note: we use div to help html formating e.g. margin-top can be given on div not button control. so, put button inside div and update class/style of div. 
 
 
+working on back to previous list; 
+we need to use navigation. use router service/
+
+
+router.navigate needs to bound in click event and attach to the html
+
+-------------------
+use
+promises instead of observable
+
+note: in exception-observable.throw (error) was used to throw back the error to the client code who calls this method and log there. 
+
+
+
+promise vs observable
+
+
+use: Promise<any> in return type instead of Promise<IEmployee>
 
 
 

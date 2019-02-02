@@ -5,25 +5,36 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/Observable/throw';
+import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class EmployeeService {
 
-    constructor(private _http: Http) {}
+    constructor(private _http: Http) { }
+
     getEmployees(): Observable<IEmployee[]> {
         return this._http.get('http://localhost:54677/api/employees')
             .map((response: Response) => <IEmployee[]>response.json())
             .catch(this.handleError);
     }
 
-    getEmployeeByCode(empCode: string): Observable<IEmployee> {
-        return this._http.get('http://localhost:54677/api/employees/' + empCode)
+
+    getEmployeeByCode(empCode: string): Promise<any> {
+        console.log(empCode);
+        return this._http.get("http://localhost:54677/api/employees/" + empCode)
             .map((response: Response) => <IEmployee>response.json())
-            .catch(this.handleError);
+            .toPromise()
+            .catch(this.handlePromiseError);
+    }
+
+    // This method is introduced to handle exceptions
+    handlePromiseError(error: Response) {
+        console.error(error);
+        throw (error);
     }
 
     handleError(error: Response) {
-        console.log(error);
+        console.error(error);
         return Observable.throw(error);
     }
 }

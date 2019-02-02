@@ -26,7 +26,7 @@ var EmployeeComponent = /** @class */ (function () {
         var _this = this;
         var empCode = this._activatedRoute.snapshot.params['code'];
         this._employeeService.getEmployeeByCode(empCode)
-            .subscribe(function (employeeData) {
+            .then(function (employeeData) {
             if (employeeData == null) {
                 _this.statusMessage = "Employee with the specified Employee Code does not exist";
             }
