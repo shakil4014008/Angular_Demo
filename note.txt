@@ -1008,8 +1008,7 @@ we need to use navigation. use router service/
 router.navigate needs to bound in click event and attach to the html
 
 -------------------
-use
-promises instead of observable
+use of promises instead of observable
 
 note: in exception-observable.throw (error) was used to throw back the error to the client code who calls this method and log there. 
 
@@ -1020,6 +1019,12 @@ promise vs observable
 
 use: Promise<any> in return type instead of Promise<IEmployee>
 
+
+observable only calls if it is subscribed.
+
+promise not lazy
+
+nw-> all-> name
 
 
 
