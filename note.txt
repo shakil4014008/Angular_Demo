@@ -990,6 +990,17 @@ root module
 3. admin mod
 4. report mod
 
+--------
+create testmodule
+
+we can create module
+
+## angular router service navigate() method
+
+
+note: we use div to help html formating e.g. margin-top can be given on div not button control. so, put button inside div and update class/style of div. 
+
+
 
 
 

@@ -2,7 +2,8 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import {RouterModule, Routes} from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { TestModule } from './test.module';
 
 
 
@@ -28,11 +29,24 @@ const appRoutes: Routes = [
 
 
 @NgModule({
-    imports: [BrowserModule, FormsModule, HttpModule, RouterModule.forRoot(appRoutes) ],
-    declarations: [AppComponent, EmployeeComponent, EmployeeListComponent,
-        EmployeeTitlePipe, EmployeeCountComponent, SimpleComponent,
-        HomeComponent, PageNotFoundComponent],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        HttpModule,
+        TestModule,
+        RouterModule.forRoot(appRoutes)
+             ],
+    declarations: [
+        AppComponent,
+        EmployeeComponent,
+        EmployeeListComponent,
+        EmployeeTitlePipe,
+        EmployeeCountComponent,
+        SimpleComponent,
+        HomeComponent,
+        PageNotFoundComponent],
     bootstrap: [AppComponent],
-    providers: [EmployeeService, UserPreferencesService]
+    providers: [EmployeeService,
+        UserPreferencesService]
 })
 export class AppModule { }
